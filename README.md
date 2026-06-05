@@ -1,4 +1,4 @@
-# SpamShield — AI-Based Spam Email Detector
+# SpamShield — AI-Based Phishing Email Detector
 
 A full-stack web application that uses **TF-IDF + Multinomial Naive Bayes** to classify emails as spam or not spam, with confidence scoring, three-tier keyword highlighting, and file upload support.
 
@@ -7,7 +7,7 @@ A full-stack web application that uses **TF-IDF + Multinomial Naive Bayes** to c
 ## Project Structure
 
 ```
-6th sem-mini project/
+SpamShield project/
 ├── backend/
 │   ├── app.py                  ← Flask API server
 │   ├── requirements.txt
