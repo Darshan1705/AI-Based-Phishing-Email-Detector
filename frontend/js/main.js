@@ -199,16 +199,28 @@ function renderHistory() {
     const time = item.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     const src  = item.meta?.fromFile
       ? `File: ${item.meta.filename}`
-      : `Text input`;
+      : 'Text input';
 
-    card.innerHTML = `
-      <span class="hc-badge ${isSpam ? 'hc-badge-spam' : 'hc-badge-ham'}">
-        ${isSpam ? 'SPAM' : 'HAM'}
-      </span>
-      <span class="hc-conf">${Math.round(item.confidence)}%</span>
-      <span class="hc-source">${src}</span>
-      <span class="hc-time">${time}</span>
-    `;
+    const badge = document.createElement('span');
+    badge.className = `hc-badge ${isSpam ? 'hc-badge-spam' : 'hc-badge-ham'}`;
+    badge.textContent = isSpam ? 'SPAM' : 'HAM';
+
+    const confidence = document.createElement('span');
+    confidence.className = 'hc-conf';
+    confidence.textContent = `${Math.round(item.confidence)}%`;
+
+    const source = document.createElement('span');
+    source.className = 'hc-source';
+    source.textContent = src;
+
+    const timeEl = document.createElement('span');
+    timeEl.className = 'hc-time';
+    timeEl.textContent = time;
+
+    card.appendChild(badge);
+    card.appendChild(confidence);
+    card.appendChild(source);
+    card.appendChild(timeEl);
 
     historyList.appendChild(card);
   }
